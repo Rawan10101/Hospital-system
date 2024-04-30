@@ -12,3 +12,18 @@ LoginPatient::~LoginPatient()
 {
     delete ui;
 }
+
+void LoginPatient::on_pushButton_clicked()
+{
+
+}
+
+
+
+
+
+void LoginPatient::on_medicalRecord_clicked()
+{
+
+}
+

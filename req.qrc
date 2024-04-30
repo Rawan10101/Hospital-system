@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>../../Desktop/CS2 Lab Project/File CS2Lab.txt</file>
+    </qresource>
+</RCC>

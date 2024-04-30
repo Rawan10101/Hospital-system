@@ -4,22 +4,19 @@
 #include <QDialog>
 
 namespace Ui {
-class Healthcare;
+class healthCare;
 }
 
-class Healthcare : public QDialog
+class healthCare : public QDialog
 {
     Q_OBJECT
 
 public:
-    Healthcare(QString name = QString(), QString specialization = QString());
-    ~Healthcare();
-    void sendMessage(QString patientName, QString message);
+    explicit healthCare(QWidget *parent = nullptr);
+    ~healthCare();
 
 private:
-    Ui::Healthcare *ui;
-    QString name1;
-    QString specialization1;
+    Ui::healthCare *ui;
 };
 
 #endif // HEALTHCARE_H
