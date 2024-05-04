@@ -17,10 +17,24 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+    enum SelectedRole {
+        Patient,
+        Nurse,
+        Doctor,
+        Admin
+    };
+
+    QString sendSelectedRole();
+
 private slots:
+    void on_PatientPB_clicked();
+    void on_DoctorPB_clicked();
+    void on_NursePB_clicked();
     void on_pushButton_clicked();
 
 private:
     Ui::MainWindow *ui;
+    SelectedRole selectedRole; // Declare the selectedRole instance variable
 };
+
 #endif // MAINWINDOW_H

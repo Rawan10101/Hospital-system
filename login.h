@@ -2,7 +2,7 @@
 #define LOGIN_H
 
 #include <QDialog>
-
+#include "mainwindow.h"
 namespace Ui {
 class Login;
 }
@@ -14,6 +14,12 @@ class Login : public QDialog
 public:
     explicit Login(QWidget *parent = nullptr);
     ~Login();
+
+    MainWindow* role;
+private slots:
+    void on_LoginPB_clicked();
+
+    void on_RegisterPB_clicked();
 
 private:
     Ui::Login *ui;

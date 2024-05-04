@@ -1,21 +1,13 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include"registration.h"
-#include "QFile"
-#include"QMessageBox"
+#include "login.h"
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    QFile file("C:/Users/HP/Desktop/CS2 Lab Project/File CS2Lab.txt");
-    if (!file.open(QFile::ReadOnly | QFile::Text))
-    {
-        QMessageBox::information(this, "Error", "Failed to open file: File.txt");
-        return;
-    }
-
-    QTextStream out(&file);
+    selectedRole = Patient;
 }
 
 MainWindow::~MainWindow()
@@ -23,11 +15,45 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_pushButton_clicked()
+void MainWindow::on_PatientPB_clicked()
 {
-    hide();
-    Registration* register1= new Registration();
-    register1->show();
-
+    selectedRole = Patient;
+    this->hide();
+    Login *login = new Login;
+    login->show();
 }
 
+void MainWindow::on_DoctorPB_clicked()
+{
+    selectedRole = Doctor;
+    this->hide();
+    Login *login = new Login;
+    login->show();
+}
+
+void MainWindow::on_NursePB_clicked()
+{
+    selectedRole = Nurse;
+    this->hide();
+    Login *login = new Login;
+    login->show();
+}
+
+void MainWindow::on_pushButton_clicked()
+{
+    selectedRole = Admin;
+    this->hide();
+    Login *login = new Login;
+    login->show();
+}
+
+QString MainWindow::sendSelectedRole()
+{
+    switch (selectedRole) {
+    case Patient: return "Patient";
+    case Nurse: return "Nurse";
+    case Doctor: return "Doctor";
+    case Admin: return "Admin";
+    }
+    return "";
+}
